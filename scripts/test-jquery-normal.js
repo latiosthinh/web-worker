@@ -5,14 +5,14 @@ const normalFunction = () => {
 	const helloTextDiv = $('#helloText')
 	helloTextDiv.text(helloTextDiv.data('text'))
 
-	$(".accordion-title").click(function(){
-		$(this).parent(".accordion-item").find(".accordion-content").slideToggle();
-		$(this).parent(".accordion-item").prevAll(".accordion-item").find(".accordion-contant").slideUp();
-		$(this).parent(".accordion-item").nextAll(".accordion-item").find(".accordion-contant").slideUp();
-	});
+  $(".accordion-title").click(function(){
+    $(this).parent(".accordion-item").find(".accordion-content").slideToggle();
+    $(this).parent(".accordion-item").prevAll(".accordion-item").find(".accordion-contant").slideUp();
+    $(this).parent(".accordion-item").nextAll(".accordion-item").find(".accordion-contant").slideUp();
+  });
 }
 
-pubsub.on('jquery-loaded', () => {
+$(document).ready(() => {
 		setTimeout(() => {
 			normalFunction()
 		}, 1000);
