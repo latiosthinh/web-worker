@@ -1,0 +1,41 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container {
+	max-width: 960px;
+	margin: 0 auto;
+}
+h1 {
+	margin: 50px 0;
+	text-align: center;
+	font-size: 30px;
+	text-transform: capitalize;
+}
+.accordion .accordion-item {
+	margin: 10px 0;
+	border-radius: 5px;
+	overflow: hidden;
+}
+.accordion-title {
+	color: white;
+	background-color: orangered;
+	padding: 10px 15px;
+	cursor: pointer;
+}
+.accordion-content {
+	padding: 15px;
+	background-color: rgba(255, 170, 0, 0.521);
+	display: none;
+}
+.accordion-title h2 span {
+	float: right;
+}
+
+.copy-right {
+	font-size: 22px;
+	text-align: center;
+	margin: 50px 0;
+}

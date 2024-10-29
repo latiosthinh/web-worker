@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
 	<title>Document</title>
 
 	<script>!function(e,n){"object"==typeof exports&&"undefined"!=typeof module?module.exports=n():"function"==typeof define&&define.amd?define(n):(e=e||self).mitt=n()}(this,function(){return function(e){return{all:e=e||new Map,on:function(n,t){var f=e.get(n);f?f.push(t):e.set(n,[t])},off:function(n,t){var f=e.get(n);f&&(t?f.splice(f.indexOf(t)>>>0,1):e.set(n,[]))},emit:function(n,t){var f=e.get(n);f&&f.slice().map(function(e){e(t)}),(f=e.get("*"))&&f.slice().map(function(e){e(n,t)})}}}});window.pubsub = new mitt();document.addEventListener("DOMContentLoaded", () => {const worker=new Worker("partytown/loader.js");document.querySelectorAll("[type='text/partytown']").forEach(script=>{worker.postMessage([script.src,script.id]),worker.addEventListener("message",e=>{var t,r;if(!(null!=(r=null==(t=e.data)?void 0:t[0])&&r.includes(script.id)))return;let initExecuteFn=script.innerHTML;script.innerHTML=e.data[1]+initExecuteFn,script.setAttribute("type","text/javascript"),eval(script.innerHTML),pubsub.emit(e.data[0])})})})</script>
@@ -16,9 +17,44 @@
 </head>
 <body>
 	
-	<div id="helloText" data-text="jQuery kicked in">Hello from vanilla JS</div>
-	
-	<title text="hello from Vue"></title>
+	<h1 id="helloText" data-text="Now main-thread can do this without downloading jQuery">Hello from vanilla JS</h1>
+
+	<div class="container">
+			<div class="accordion">
+					<div class="accordion-item">
+							<div class="accordion-title">
+									<h2>accordion-1 <span><i class="fa-solid fa-angle-down"></i></span></h2>
+							</div>
+							<div class="accordion-content">
+									<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam neque quisquam cumque, distinctio ducimus pariatur?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam neque quisquam cumque, distinctio ducimus pariatur?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam neque quisquam cumque, distinctio ducimus pariatur?</p>
+							</div>
+					</div>
+					<div class="accordion-item">
+							<div class="accordion-title">
+									<h2>accordion-2 <span><i class="fa-solid fa-angle-down"></i></span></h2>
+							</div>
+							<div class="accordion-content">
+									<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam neque quisquam cumque, distinctio ducimus pariatur?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam neque quisquam cumque, distinctio ducimus pariatur?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam neque quisquam cumque, distinctio ducimus pariatur?</p>
+							</div>
+					</div>
+					<div class="accordion-item">
+							<div class="accordion-title">
+									<h2>accordion-3 <span><i class="fa-solid fa-angle-down"></i></span></h2>
+							</div>
+							<div class="accordion-content">
+									<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam neque quisquam cumque, distinctio ducimus pariatur?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam neque quisquam cumque, distinctio ducimus pariatur?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam neque quisquam cumque, distinctio ducimus pariatur?</p>
+							</div>
+					</div>
+					<div class="accordion-item">
+							<div class="accordion-title">
+									<h2>accordion-4 <span><i class="fa-solid fa-angle-down"></i></span></h2>
+							</div>
+							<div class="accordion-content">
+									<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam neque quisquam cumque, distinctio ducimus pariatur?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam neque quisquam cumque, distinctio ducimus pariatur?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam neque quisquam cumque, distinctio ducimus pariatur?</p>
+							</div>
+					</div>
+			</div>
+	</div>
 	
 	
 	<script type="text/partytown" src="scripts/jquery.js" id="jquery"></script>
