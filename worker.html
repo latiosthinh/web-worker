@@ -9,8 +9,12 @@
 	<script>!function(e,n){"object"==typeof exports&&"undefined"!=typeof module?module.exports=n():"function"==typeof define&&define.amd?define(n):(e=e||self).mitt=n()}(this,function(){return function(e){return{all:e=e||new Map,on:function(n,t){var f=e.get(n);f?f.push(t):e.set(n,[t])},off:function(n,t){var f=e.get(n);f&&(t?f.splice(f.indexOf(t)>>>0,1):e.set(n,[]))},emit:function(n,t){var f=e.get(n);f&&f.slice().map(function(e){e(t)}),(f=e.get("*"))&&f.slice().map(function(e){e(n,t)})}}}});window.pubsub = new mitt();document.addEventListener("DOMContentLoaded", () => {const worker=new Worker("partytown/loader.js");document.querySelectorAll("[type='text/partytown']").forEach(script=>{worker.postMessage([script.src,script.id]),worker.addEventListener("message",e=>{var t,r;if(!(null!=(r=null==(t=e.data)?void 0:t[0])&&r.includes(script.id)))return;let initExecuteFn=script.innerHTML;script.innerHTML=e.data[1]+initExecuteFn,script.setAttribute("type","text/javascript"),eval(script.innerHTML),pubsub.emit(e.data[0])})})})</script>
 
 	<!-- Google Tag Manager -->
-	<script type="text/partytown" src="https://www.googletagmanager.com/gtm.js?id=GTM-5TKXS2RG" id="gtm">
-		dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'})
+	<script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-ME22HVZTGJ" id="gtm">
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-ME22HVZTGJ');
 	</script>
 	<!-- End Google Tag Manager -->
 </head>
