@@ -12,7 +12,5 @@ const normalFunction = () => {
 }
 
 $(document).ready(() => {
-		setTimeout(() => {
-			normalFunction()
-		}, 1000);
+	normalFunction()
 })
