@@ -11,14 +11,6 @@ const normalFunction = () => {
 	});
 }
 
-// pubsub.on('jquery-loaded', () => {
-// 		setTimeout(() => {
-// 			normalFunction()
-// 		}, 1000);
-// })
-
-document.addEventListener("DOMContentLoaded", () => {
-	setTimeout(() => {
+pubsub.on('jquery-loaded', () => {
 		normalFunction()
-	}, 1000);
 })
